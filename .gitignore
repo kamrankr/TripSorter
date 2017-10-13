@@ -1,0 +1,5 @@
+vendor/*
+nbproject/private/*
+tests/_data/*
+tests/_log/*
+tests/_ouput/*
