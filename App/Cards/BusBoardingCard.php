@@ -9,7 +9,11 @@ namespace App\Cards;
  */
 class BusBoardingCard extends BoardingCards implements CardsI
 {
-
+     /**
+     * Returns the Formated String output for Bus Card.
+     *
+     * @return string
+     */
     public function toString()
     {
         return 'Take the airport bus from ' . $this->startPoint() .

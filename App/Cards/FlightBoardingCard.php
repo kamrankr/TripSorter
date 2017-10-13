@@ -3,7 +3,7 @@
 namespace App\Cards;
 
 /**
- * Description of FlightBoardingCard
+ * Flight Boarding card
  *
  * @author kamran
  */
@@ -13,6 +13,13 @@ class FlightBoardingCard extends BoardingCards implements CardsI
     private $gate;
     private $baggageCounter;
 
+    /**
+     * This method sets gate number if provided and returns gate number if null is passed.
+     *
+     * @param string $gate Gate Number.
+     *
+     * @return string
+     */
     public function gate($gate = null)
     {
         if (null === $gate)
@@ -24,6 +31,13 @@ class FlightBoardingCard extends BoardingCards implements CardsI
         return $this;
     }
 
+    /**
+     * This method sets baggageCounter number if provided and returns baggageCounter number if null is passed.
+     *
+     * @param string $baggageCounter BaggageCounter.
+     *
+     * @return string
+     */
     public function baggageCounter($baggageCounter = null)
     {
         if (null === $baggageCounter)
@@ -35,6 +49,11 @@ class FlightBoardingCard extends BoardingCards implements CardsI
         return $this;
     }
 
+    /**
+     * Returns the Formated String output for Flight Card.
+     *
+     * @return string
+     */
     public function toString()
     {
         return 'From ' . $this->startPoint() .

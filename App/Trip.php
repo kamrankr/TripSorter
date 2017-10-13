@@ -28,6 +28,14 @@ class Trip
      * we need only start of journey to navigate till the last leg. as every destination is the
      * source for nex trip 
      */
+    
+    /**
+     * This method adds a card to trip.
+     *
+     * @param BoardingCards $tripCard.
+     *
+     * @return void
+     */
     public function addCard(BoardingCards $tripCard)
     {
         if (empty($tripCard->startPoint()) || empty($tripCard->destinationPoint()))
@@ -51,7 +59,12 @@ class Trip
             unset($this->canBeStartOfJourney[$tripCard->destinationPoint()]);
         }
     }
-
+    
+    /**
+     * This method returns array of BoardingCard Objects
+     *
+     * @return array
+     */
     public function sortedTripCards()
     {
         foreach ($this->canBeStartOfJourney as $start => $val)

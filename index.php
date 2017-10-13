@@ -51,7 +51,7 @@ $cards[] = (new FlightBoardingCard())
  /*
   * Sorted Trip cards returned and displayed
   */
-    $sortedCards = $trip->sortedTripCards() ;
+    $sortedCards = $trip->sortedTripCards();
     foreach ($sortedCards as $journeyCard)
     {
         echo $journeyCard->toString();
