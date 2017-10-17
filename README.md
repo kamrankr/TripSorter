@@ -1,3 +1,7 @@
+Installation:
+-------------------
+Clone from github
+
 To Run Code from Cli:
 ---------------------   
     php index.php
