@@ -1,9 +1,10 @@
 <?php
-use App\Cards\BusBoardingCard;
 
+use App\Cards\BusBoardingCard;
 
 class BusBoardingCardTest extends \Codeception\Test\Unit
 {
+
     /**
      * @var \UnitTester
      */
@@ -11,28 +12,28 @@ class BusBoardingCardTest extends \Codeception\Test\Unit
 
     public function testBusBoardingCardStartAndDestinationPointOuput()
     {
-        $busBoardingCard = new BusBoardingCard();
-        $busBoardingCard->startPoint('testStartPoint')->destinationPoint('testDestinationPoint');
+        $busBoardingCard = new BusBoardingCard('testStartPoint', 'testDestinationPoint');
         $output = $busBoardingCard->toString();
-         
-        $this->assertContains("testStartPoint",$output,"Unable to verify start Point exist in bus card");
-        $this->assertContains("testDestinationPoint",$output,"Unable to verify destination Point exist in bus card");
+
+        $this->assertContains("testStartPoint", $output, "Unable to verify start Point exist in bus card");
+        $this->assertContains("testDestinationPoint", $output, "Unable to verify destination Point exist in bus card");
     }
-    
+
     public function testBusBoardingCardWithoutSeatAssignment()
     {
-        $busBoardingCard = new BusBoardingCard();
+        $busBoardingCard = new BusBoardingCard('A', 'B');
         $output = $busBoardingCard->toString();
-        $this->assertContains("No seat assignment",$output,"empty seat should return ,  no seat assignment");
+        $this->assertContains("No seat assignment", $output, "empty seat should return ,  no seat assignment");
     }
-    
+
     public function testBusBoardingCardWithSeatAssignment()
     {
-        $busBoardingCard = new BusBoardingCard();
-        $seatNumber = rand(1,100).'B'; // Random Seat Number Generation
+        $busBoardingCard = new BusBoardingCard('A', 'B');
+        $seatNumber = rand(1, 100) . 'B'; // Random Seat Number Generation
         $busBoardingCard->seatNumber($seatNumber);
-        
+
         $output = $busBoardingCard->toString();
-        $this->assertContains($seatNumber,$output,"expecting seat number in output");
+        $this->assertContains($seatNumber, $output, "expecting seat number in output");
     }
+
 }

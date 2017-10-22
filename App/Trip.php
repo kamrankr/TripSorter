@@ -11,6 +11,7 @@ use App\Cards\BoardingCards;
  */
 class Trip
 {
+
     public $tripBoardingCards;
     public $start;
     public $canBeStartOfJourney;
@@ -28,7 +29,7 @@ class Trip
      * we need only start of journey to navigate till the last leg. as every destination is the
      * source for nex trip 
      */
-    
+
     /**
      * This method adds a card to trip.
      *
@@ -44,10 +45,10 @@ class Trip
         }
         // save allboarding cards by source point
         $this->tripBoardingCards[$tripCard->startPoint()] = $tripCard;
-        
+
         // Destination points cannot be the "start of journey" where trip starts
         $this->canNotBeStartOfJourney[$tripCard->destinationPoint()] = true;
-        
+
         // if start point is not in the destination array save it in start array
         if (!isset($this->canNotBeStartOfJourney[$tripCard->startPoint()]))
         {
@@ -59,7 +60,7 @@ class Trip
             unset($this->canBeStartOfJourney[$tripCard->destinationPoint()]);
         }
     }
-    
+
     /**
      * This method returns array of BoardingCard Objects
      *
@@ -73,7 +74,7 @@ class Trip
              *  Getting the "start of journey", The complexity is 
              * constant as we have only 1 item left that is start of trip  
              */
-            $tripStartsAt = $start;  
+            $tripStartsAt = $start;
         }
 
         while ($tripStartsAt != null)
@@ -82,7 +83,8 @@ class Trip
             {
                 $cards[] = $this->tripBoardingCards[$tripStartsAt];
                 $tripStartsAt = $this->tripBoardingCards[$tripStartsAt]->destinationPoint();
-            } else
+            }
+            else
             {
                 $tripStartsAt = null;
             }

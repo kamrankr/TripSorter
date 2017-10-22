@@ -1,6 +1,8 @@
 <?php
+
 class TrainBoardingCardTest extends \Codeception\Test\Unit
 {
+
     /**
      * @var \UnitTester
      */
@@ -8,12 +10,10 @@ class TrainBoardingCardTest extends \Codeception\Test\Unit
 
     public function testTrainBoardingCardWithTransportIdentificationNumber()
     {
-        $trainBoardingCard = new App\Cards\TrainBoardingCard();
-        $trainBoardingCard
-            ->startPoint('testStartPoint')
-            ->destinationPoint('testDestinationPoint')
-            ->transportIdentificationNumber('78A');
+        $trainBoardingCard = new App\Cards\TrainBoardingCard('A', 'B');
+        $trainBoardingCard->transportIdentificationNumber('78A');
         $output = $trainBoardingCard->toString();
-        $this->assertContains("78A",$output,"TransportIdentification number is invalid");
+        $this->assertContains("78A", $output, "TransportIdentification number is invalid");
     }
+
 }

@@ -13,28 +13,20 @@ require 'vendor/autoload.php';
 
 $cards = [];
 
-$cards[] = (new FlightBoardingCard())
-        ->startPoint('Stockholm')
-        ->destinationPoint('New York JFK')
+$cards[] = (new FlightBoardingCard('Stockholm', 'New York JFK'))
         ->seatNumber('7B')
         ->transportIdentificationNumber('SK22')
         ->gate(22);
 
 
-$cards[] = (new TrainBoardingCard())
-        ->startPoint('Madrid')
-        ->destinationPoint('Barcelona')
+$cards[] = (new TrainBoardingCard('Madrid', 'Barcelona'))
         ->seatNumber('45B')
         ->transportIdentificationNumber('78A');
 
 
-$cards[] = (new BusBoardingCard())
-        ->startPoint('Barcelona')
-        ->destinationPoint('Gerona Airport');
+$cards[] = (new BusBoardingCard('Barcelona', 'Gerona Airport'));
 
-$cards[] = (new FlightBoardingCard())
-        ->startPoint('Gerona Airport')
-        ->destinationPoint('Stockholm')
+$cards[] = (new FlightBoardingCard('Gerona Airport', 'Stockholm'))
         ->seatNumber('3A')
         ->transportIdentificationNumber('SK455')
         ->gate('45B')

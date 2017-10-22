@@ -1,51 +1,47 @@
 <?php
 
 namespace App\Cards;
+
 /*
  * Base Class for Boarding cards 
  * Contains all the similar properties for cards
  */
+
 class BoardingCards
 {
+
     protected $startPoint;
     protected $destinationPoint;
     protected $seatNumber;
     protected $transportIdentificationNumber;
-    
-    /**
-     * This method sets startPoint of a card and returns startPoint of card if null is passed.
-     *
-     * @param string $startPoint startPoint Of card.
-     *
-     * @return string
-     */
-    
-    public function startPoint($startPoint = null)
-    {
-        if (null === $startPoint)
-        {
-            return $this->startPoint;
-        }
 
+    public function __construct($startPoint = null, $destinationPoint = null)
+    {
+        if (null === $startPoint || null === $destinationPoint)
+        {
+            throw new \Exception("Start and End point are required for a card");
+        }
         $this->startPoint = $startPoint;
-        return $this;
+        $this->destinationPoint = $destinationPoint;
     }
-    
+
     /**
-     * This method sets destinationPoint of a card and returns destinationPoint of card if null is passed.
-     *
-     * @param string $destinationPoint destinationPoint Of card.
+     * This method returns startPoint of card.
+     * @return string
+     */
+    public function startPoint()
+    {
+        return $this->startPoint;
+    }
+
+    /**
+     * This method returns destinationPoint of card .
      *
      * @return string
      */
-    public function destinationPoint($destinationPoint = null)
+    public function destinationPoint()
     {
-        if (null === $destinationPoint)
-        {
-            return $this->destinationPoint;
-        }
-        $this->destinationPoint = $destinationPoint;
-        return $this;
+        return $this->destinationPoint;
     }
 
     /**
@@ -65,7 +61,7 @@ class BoardingCards
         $this->seatNumber = $seatNumber;
         return $this;
     }
-    
+
     /**
      * This method sets transportIdentificationNumber of a card and returns transportIdentificationNumber of card if null is passed.
      *
@@ -73,7 +69,6 @@ class BoardingCards
      *
      * @return string
      */
-    
     public function transportIdentificationNumber($transportIdentificationNumber = null)
     {
         if (null === $transportIdentificationNumber)
@@ -84,4 +79,5 @@ class BoardingCards
         $this->transportIdentificationNumber = $transportIdentificationNumber;
         return $this;
     }
+
 }
