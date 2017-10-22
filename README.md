@@ -2,6 +2,10 @@ Installation:
 -------------------
 Clone from github
 
+Navigate to clone folder from your cli and Run: 
+	composer dump-autolad
+
+
 To Run Code from Cli:
 ---------------------   
     php index.php
@@ -20,7 +24,3 @@ Xampp/Wampp
 For Tests
 ------------
 php codeception.phar run unit
-
-Assumptions:
-For testing I am using Codeception framework as it was not mention explicitly which framework to use,
-I am using composer to autoload classes in App as well as inside tests
