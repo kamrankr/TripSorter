@@ -1,11 +1,13 @@
 <?php
+
 namespace App\Cards;
 
 /**
  *
- * @author Hp
+ * @author kamran
  */
 interface CardsI
 {
+
     public function toString();
 }
