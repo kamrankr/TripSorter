@@ -59,7 +59,7 @@ foreach ($sortedCards as $journeyCard)
     {
         echo "<br />";
     }
-
-    echo "You have arrived at your final destination.";
-    echo PHP_EOL;
 }
+
+echo "You have arrived at your final destination.";
+echo PHP_EOL;
