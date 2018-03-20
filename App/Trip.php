@@ -12,22 +12,24 @@ use App\Cards\BoardingCards;
 class Trip
 {
 
-    public $tripBoardingCards;
-    public $start;
-    public $canBeStartOfJourney;
-    public $canNotBeStartOfJourney;
+    protected $tripBoardingCards;
+    protected $start;
+    protected $canBeStartOfJourney;
+    protected $canNotBeStartOfJourney;
 
-    /*
+    /* ====================== Algorithm ===========================
+     * Following algorithm is without any loops and iterations, Sorting can be managed by using O(n)
+     * Space complexity.
      * Add card method will accept Boarding cards and works on two associated arrays
      * canBeStartOfJourney and canNotBeStartOfJourney
-     * for every new card we add we have source and destination prresent in card.
-     * All the destination points will be saved in $canNotBeStartOfJourney and every 
+     * for every new card we add we have source and destination present in card.
+     * All the destination points will be saved in $canNotBeStartOfJourney and every
      * source point be will be $canBeStartOfJourney and if the source is present
-     * in  destination array ($canNotBeStartOfJourney), 
+     * in  destination array ($canNotBeStartOfJourney),
      * we will remove that source from $canBeStartOfJourney
      * At the end leaving $canBeStartOfJourney of journey with only one item that is "start of journey"
      * we need only start of journey to navigate till the last leg. as every destination is the
-     * source for nex trip 
+     * source for nex trip
      */
 
     /**
@@ -43,6 +45,7 @@ class Trip
         {
             throw new \InvalidArgumentException("Card should have a start and destination point");
         }
+
         // save allboarding cards by source point
         $this->tripBoardingCards[$tripCard->startPoint()] = $tripCard;
 
@@ -62,34 +65,20 @@ class Trip
     }
 
     /**
-     * This method returns array of BoardingCard Objects
+     * This method returns start of Journey
      *
      * @return array
      */
-    public function sortedTripCards()
+    public function startOfJourney()
     {
-        foreach ($this->canBeStartOfJourney as $start => $val)
-        {
-            /*
-             *  Getting the "start of journey", The complexity is 
-             * constant as we have only 1 item left that is start of trip  
-             */
-            $tripStartsAt = $start;
-        }
+        // canBeStartOfJourney has one element only - Following statement is O(1)
+        $tripStartsAt = array_keys($this->canBeStartOfJourney);
+        return reset($tripStartsAt);
+    }
 
-        while ($tripStartsAt != null)
-        {
-            if (isset($this->tripBoardingCards[$tripStartsAt]))
-            {
-                $cards[] = $this->tripBoardingCards[$tripStartsAt];
-                $tripStartsAt = $this->tripBoardingCards[$tripStartsAt]->destinationPoint();
-            }
-            else
-            {
-                $tripStartsAt = null;
-            }
-        }
-        return $cards;
+    public function allBoardingCards()
+    {
+        return $this->tripBoardingCards;
     }
 
 }

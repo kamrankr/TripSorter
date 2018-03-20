@@ -3,11 +3,11 @@
 namespace App\Cards;
 
 /*
- * Base Class for Boarding cards 
+ * Base Class for Boarding cards
  * Contains all the similar properties for cards
  */
 
-class BoardingCards
+abstract class BoardingCards
 {
 
     protected $startPoint;
@@ -21,7 +21,7 @@ class BoardingCards
         {
             throw new \Exception("Start and End point are required for a card");
         }
-        $this->startPoint = $startPoint;
+        $this->startPoint       = $startPoint;
         $this->destinationPoint = $destinationPoint;
     }
 
@@ -80,4 +80,9 @@ class BoardingCards
         return $this;
     }
 
+    /*
+     *  Every child class i-e Boarding card must override this method to output data according to its format
+     */
+
+    abstract function toString();
 }

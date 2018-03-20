@@ -14,25 +14,25 @@ require 'vendor/autoload.php';
 $cards = [];
 
 $cards[] = (new FlightBoardingCard('Stockholm', 'New York JFK'))
-        ->seatNumber('7B')
-        ->transportIdentificationNumber('SK22')
-        ->gate(22);
+    ->seatNumber('7B')
+    ->transportIdentificationNumber('SK22')
+    ->gate(22);
 
 
 $cards[] = (new TrainBoardingCard('Madrid', 'Barcelona'))
-        ->seatNumber('45B')
-        ->transportIdentificationNumber('78A');
+    ->seatNumber('45B')
+    ->transportIdentificationNumber('78A');
 
 
 $cards[] = (new BusBoardingCard('Barcelona', 'Gerona Airport'));
 
 $cards[] = (new FlightBoardingCard('Gerona Airport', 'Stockholm'))
-        ->seatNumber('3A')
-        ->transportIdentificationNumber('SK455')
-        ->gate('45B')
-        ->baggageCounter(344);
+    ->seatNumber('3A')
+    ->transportIdentificationNumber('SK455')
+    ->gate('45B')
+    ->baggageCounter(344);
 
-// shuffle ($cards); // Shuffle cards to test sorting 
+// shuffle($cards); // Shuffle cards to test sorting
 
 /*
  * New Trip With cards generarted
@@ -44,20 +44,31 @@ foreach ($cards as $card)
     $trip->addCard($card);
 }
 
-/*
- * Sorted Trip cards returned and displayed
- */
-$sortedCards = $trip->sortedTripCards();
-foreach ($sortedCards as $journeyCard)
+
+// get all added boarding cards, keyed by departure and value is card object
+$tripCards = $trip->allBoardingCards();
+
+// getting the start of journey, as all journeys are connected only start of journey is required to traverse
+$tripStartsAt = $trip->startOfJourney();
+
+while ($tripStartsAt != null)
 {
-    echo $journeyCard->toString();
-    if (php_sapi_name() == "cli")
+    if (isset($tripCards[$tripStartsAt]))
     {
-        echo PHP_EOL;
+        echo $tripCards[$tripStartsAt]->toString();
+        if (php_sapi_name() == "cli")
+        {
+            echo PHP_EOL;
+        }
+        else
+        {
+            echo "<br />";
+        }
+        $tripStartsAt = $tripCards[$tripStartsAt]->destinationPoint();
     }
     else
     {
-        echo "<br />";
+        $tripStartsAt = null;
     }
 }
 

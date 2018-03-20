@@ -7,7 +7,7 @@ namespace App\Cards;
  *
  * @author kamran
  */
-class FlightBoardingCard extends BoardingCards implements CardsI
+class FlightBoardingCard extends BoardingCards
 {
 
     private $gate;

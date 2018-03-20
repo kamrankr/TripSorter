@@ -8,10 +8,10 @@ class TripTest extends \Codeception\Test\Unit
      */
     protected $tester;
 
-    public function testSortedTripCards()
+    public function testGetTripCards()
     {
         /*
-         * Reason to mock Boarding card is error in BoardingClass 
+         * Reason to mock Boarding card is error in BoardingClass
          * should not result in failure of this unit test (Isolated unit tests)
          */
 
@@ -26,8 +26,8 @@ class TripTest extends \Codeception\Test\Unit
 
         $trip = new App\Trip();
         $trip->addCard($mockCard);
-        $sortedCard = $trip->sortedTripCards();
-        $this->assertCount(1, $sortedCard, "count of returned array should be equal to cards added");
+        $cards = $trip->allBoardingCards();
+        $this->assertCount(1, $cards, "count of returned array should be equal to cards added");
     }
 
 }
