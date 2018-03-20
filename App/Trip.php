@@ -11,9 +11,7 @@ use App\Cards\BoardingCards;
  */
 class Trip
 {
-
     protected $tripBoardingCards;
-    protected $start;
     protected $canBeStartOfJourney;
     protected $canNotBeStartOfJourney;
 
