@@ -4,7 +4,7 @@ Clone from github
 
 Navigate to clone folder from your cli and Run: 
 --------------------------------------------------------------
-	composer dump-autoload
+	composer install
 
 To Run Code from Cli:
 ---------------------   
@@ -18,4 +18,4 @@ Internal php server:
 
 For Tests
 ------------
-php codeception.phar run unit
+./vendor/bin/phpunit --bootstrap vendor/autoload.php tests --testdox
