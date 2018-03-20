@@ -1,12 +1,8 @@
 <?php
+use PHPUnit\Framework\TestCase;
 
-class TrainBoardingCardTest extends \Codeception\Test\Unit
+class TrainBoardingCardTest extends TestCase
 {
-
-    /**
-     * @var \UnitTester
-     */
-    protected $tester;
 
     public function testTrainBoardingCardWithTransportIdentificationNumber()
     {

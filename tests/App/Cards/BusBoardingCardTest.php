@@ -1,8 +1,9 @@
 <?php
 
 use App\Cards\BusBoardingCard;
+use PHPUnit\Framework\TestCase;
 
-class BusBoardingCardTest extends \Codeception\Test\Unit
+class BusBoardingCardTest extends TestCase
 {
 
     /**

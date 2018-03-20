@@ -1,10 +1,12 @@
 <?php
+use App\Trip;
+use PHPUnit\Framework\TestCase;
 
-class TripTest extends \Codeception\Test\Unit
+class TripTest extends TestCase
 {
 
     /**
-     * @var \UnitTester
+     * @var UnitTester
      */
     protected $tester;
 
@@ -24,7 +26,7 @@ class TripTest extends \Codeception\Test\Unit
         $mockCard->method('destinationPoint')
                 ->willReturn('B');
 
-        $trip = new App\Trip();
+        $trip  = new Trip();
         $trip->addCard($mockCard);
         $cards = $trip->allBoardingCards();
         $this->assertCount(1, $cards, "count of returned array should be equal to cards added");
