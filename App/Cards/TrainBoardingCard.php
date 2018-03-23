@@ -7,7 +7,7 @@ namespace App\Cards;
  *
  * @author kamran
  */
-class TrainBoardingCard extends BoardingCards
+class TrainBoardingCard extends AbstractBoardingCards
 {
      /**
      * Returns the Formated String output for Train Card.

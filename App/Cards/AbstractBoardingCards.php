@@ -7,7 +7,7 @@ namespace App\Cards;
  * Contains all the similar properties for cards
  */
 
-abstract class BoardingCards
+abstract class AbstractBoardingCards
 {
 
     protected $startPoint;
@@ -81,7 +81,8 @@ abstract class BoardingCards
     }
 
     /*
-     *  Every child class i-e Boarding card must override this method to output data according to its format
+     *  Every child class i-e Boarding card must override this method to output 
+     * data according to its format
      */
 
     abstract function toString();

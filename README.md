@@ -18,4 +18,4 @@ Internal php server:
 
 For Tests
 ------------
-./vendor/bin/phpunit --bootstrap vendor/autoload.php tests --testdox
+./vendor/bin/phpunit --testdox

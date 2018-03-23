@@ -6,12 +6,7 @@ use PHPUnit\Framework\TestCase;
 class BusBoardingCardTest extends TestCase
 {
 
-    /**
-     * @var \UnitTester
-     */
-    protected $tester;
-
-    public function testBusBoardingCardStartAndDestinationPointOuput()
+   public function testBusBoardingCardStartAndDestinationPointOuput()
     {
         $busBoardingCard = new BusBoardingCard('testStartPoint', 'testDestinationPoint');
         $output = $busBoardingCard->toString();

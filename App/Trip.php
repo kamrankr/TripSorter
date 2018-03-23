@@ -2,7 +2,8 @@
 
 namespace App;
 
-use App\Cards\BoardingCards;
+use App\Cards\AbstractBoardingCards;
+use InvalidArgumentException;
 
 /**
  * Trip is the class to create new Trip and sort cards
@@ -37,11 +38,11 @@ class Trip
      *
      * @return void
      */
-    public function addCard(BoardingCards $tripCard)
+    public function addCard(AbstractBoardingCards $tripCard)
     {
         if (empty($tripCard->startPoint()) || empty($tripCard->destinationPoint()))
         {
-            throw new \InvalidArgumentException("Card should have a start and destination point");
+            throw new InvalidArgumentException("Card should have a start and destination point");
         }
 
         // save allboarding cards by source point

@@ -3,6 +3,7 @@
 use App\Cards\BusBoardingCard;
 use App\Cards\FlightBoardingCard;
 use App\Cards\TrainBoardingCard;
+use App\OutputFormat\Formatter;
 use App\Trip;
 
 require 'vendor/autoload.php';
@@ -44,33 +45,13 @@ foreach ($cards as $card)
     $trip->addCard($card);
 }
 
-
-// get all added boarding cards, keyed by departure and value is card object
-$tripCards = $trip->allBoardingCards();
-
-// getting the start of journey, as all journeys are connected only start of journey is required to traverse
-$tripStartsAt = $trip->startOfJourney();
-
-while ($tripStartsAt != null)
+if (php_sapi_name() == "cli")
 {
-    if (isset($tripCards[$tripStartsAt]))
-    {
-        echo $tripCards[$tripStartsAt]->toString();
-        if (php_sapi_name() == "cli")
-        {
-            echo PHP_EOL;
-        }
-        else
-        {
-            echo "<br />";
-        }
-        $tripStartsAt = $tripCards[$tripStartsAt]->destinationPoint();
-    }
-    else
-    {
-        $tripStartsAt = null;
-    }
+    $lineBreak = PHP_EOL;
+} else
+{
+    $lineBreak = "<br />";
 }
-
-echo "You have arrived at your final destination.";
-echo PHP_EOL;
+$formatter = new Formatter();
+echo $formatter->setLineBreak($lineBreak)
+    ->format($trip);

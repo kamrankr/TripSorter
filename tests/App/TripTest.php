@@ -29,7 +29,9 @@ class TripTest extends TestCase
         $trip  = new Trip();
         $trip->addCard($mockCard);
         $cards = $trip->allBoardingCards();
+        
         $this->assertCount(1, $cards, "count of returned array should be equal to cards added");
+        $this->assertEquals($trip->startOfJourney(),'A',"start of journey is wrong");
     }
 
 }
