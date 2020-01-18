@@ -33,8 +33,6 @@ $cards[] = (new FlightBoardingCard('Gerona Airport', 'Stockholm'))
     ->gate('45B')
     ->baggageCounter(344);
 
-// shuffle($cards); // Shuffle cards to test sorting
-
 /*
  * New Trip With cards generarted
  */
