@@ -1,6 +1,6 @@
 Installation:
 -------------------
-Clone from github repository
+Clone from github
 
 Navigate to clone folder from your cli and Run: 
 --------------------------------------------------------------
