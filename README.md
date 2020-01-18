@@ -1,6 +1,6 @@
 Installation:
 -------------------
-Clone from github
+Clone from github repository
 
 Navigate to clone folder from your cli and Run: 
 --------------------------------------------------------------
@@ -19,3 +19,4 @@ Internal php server:
 For Tests
 ------------
 ./vendor/bin/phpunit --testdox
+
